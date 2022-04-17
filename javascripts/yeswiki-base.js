@@ -30,7 +30,7 @@ var DATATABLE_OPTIONS = {
     footer: false,
   },
   dom:
-    "<'row'<'col-sm-6'l><'col-sm-6'f>>" +
+    "<'row'<'col-sm-6'l><'table-search col-sm-6 text-right'f>>" +
     "<'row'<'col-sm-12'tr>>" +
     "<'row'<'col-sm-6'i><'col-sm-6'<'pull-right'B>>>",
   buttons: [
