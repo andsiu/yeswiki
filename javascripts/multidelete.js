@@ -63,8 +63,8 @@ const multiDeleteService = {
     }
   },
   deleteOneItem: function (modal,items,type,currentIndex,target){
-    if (['pages'].indexOf(type) == -1){
-      multiDeleteService.addErrorMessage(modal,"Unknown type ! Should be 'pages' !");
+    if (['pages','comments'].indexOf(type) == -1){
+      multiDeleteService.addErrorMessage(modal,"Unknown type ! Should be 'pages' or 'comments'!");
       return;
     }
     let item = items[currentIndex] ?? {};
