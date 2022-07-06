@@ -2,6 +2,8 @@
 
 YesWiki se présente comme un outil de création de sites web conçu pour **faciliter la coopération**. La modification des pages s'opère par un **simple double-clic**. Le langage wiki, quant à lui, intègre un **langage de balisage léger** et simple d'utilisation. 
 
+<yeswiki-action text="greetings"></yeswiki-action>
+
 YesWiki étant un **logiciel interopérable**, il permet d'intégrer d'autres logiciels ou services Internet. Il est possible par exemple d'insérer et afficher dans les pages un outil de co-écriture comme un pad, un agenda en ligne, une vidéo ou encore une autre page web (iframe). Yeswiki facilite grandement l'intégration dynamique de contenus en provenance d'autres yeswikis. L'import et l'export de données sont aussi possibles en différents formats (csv, json, ical...)
 
 YesWiki permet de **créer des bases de données coopératives** pour collecter des informations à l'aide de formulaires, qui peuvent **ensuite être restituées** sous forme d'agenda, carte géographique, annuaire, fil d'actualités, album photos, tableaux... agrémenté d'option de **filtrage dynamique** si souhaité. 

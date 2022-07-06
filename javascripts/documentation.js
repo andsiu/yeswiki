@@ -37,6 +37,27 @@ window.$docsify = {
       },
       depth: 2,
       pathNamespaces: ['/fr/', '/', '/cat/', '/es/'],
-
+    },
+    vueComponents: {
+      'yeswiki-action': {
+        prop: ['text'],
+        template: `
+          <span v-html="this.text"></span>
+        `,
+        data() {
+          return {
+            ready: false, // when ajax data have been retrieved
+            renderedContent: "",
+          };
+        },
+        mounted() {
+          // Retrieve data asynchronoulsy
+          console.log(this.text)
+          console.log(wiki.url('root/render',{content:`{{${this.text}}}`}));
+          $.getJSON(wiki.url('root/render', {content:this.$scopedSlots.main}), (data) => {
+            console.log(data);
+          });
+        }
+      },
     }
 }
