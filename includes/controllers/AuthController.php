@@ -3,6 +3,7 @@
 namespace YesWiki\Core\Controller;
 
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use YesWiki\Core\Controller\UserController;
 use YesWiki\Core\Entity\User;
 use YesWiki\Core\Exception\BadFormatPasswordException;
 use YesWiki\Core\Service\PasswordHasherFactory;
@@ -219,5 +220,24 @@ class AuthController extends YesWikiController
             $this->wiki->DeleteCookie('password');
             $this->wiki->DeleteCookie('remember');
         }
+    }
+
+    /**
+     * connect the firstAdmin and return if
+     * SHOULD NOT BE USED but, waiting an alternative, this hack exists
+     * @return null|User $firtAdmin
+     */
+    public function connectFirstAdmin(): ?User
+    {
+        $firstAdminName = $this->wiki->services->get(UserController::class)->getFirstAdmin();
+        if (empty($firstAdminName)) {
+            return null;
+        }
+        $firstAdmin = $this->userManager->getOneByName($firstAdminName);
+        if (empty($firstAdmin)) {
+            return null;
+        }
+        $this->login($firstAdmin);
+        return $firstAdmin;
     }
 }
