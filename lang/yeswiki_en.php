@@ -31,6 +31,7 @@
 return [
 
     // Commons
+    'ARCHIVES' => 'Archives',
     'ANSWER' => 'Answer',
     'BY' => 'by',
     'CAUTION' => 'Caution',
@@ -44,6 +45,7 @@ return [
     'INVERT' => 'Invert',
     'MODIFY' => 'Modify',
     'NAME' => 'Name',
+    'ONLY_FOR_ADMINS' => 'Only for administrators',
     'PAGES' => 'Pages',
     'SUBSCRIPTION' => 'Subscription',
     'TRIPLES' => 'Triples',
