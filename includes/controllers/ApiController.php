@@ -12,6 +12,7 @@ use YesWiki\Bazar\Controller\EntryController;
 use YesWiki\Bazar\Service\EntryManager;
 use YesWiki\Core\ApiResponse;
 use YesWiki\Core\Controller\ArchiveController;
+use YesWiki\Core\Controller\AuthController;
 use YesWiki\Core\Controller\CsrfTokenController;
 use YesWiki\Core\Controller\UserController;
 use YesWiki\Core\Exception\DeleteUserException;
@@ -666,7 +667,7 @@ class ApiController extends YesWikiController
             );
         }
         if (empty($username)) {
-            $username = $this->getService(UserManager::class)->getLoggedUser()['name'];
+            $username = $this->getService(AuthController::class)->getLoggedUser()['name'];
         }
         $rawValue = $_POST['value'] ?? [];
         if (is_array($rawValue)) {
@@ -788,12 +789,12 @@ class ApiController extends YesWikiController
             $username = ($username === false) ? "" : htmlspecialchars(strip_tags($username));
             if (empty($username)) {
                 if (!$this->wiki->UserIsAdmin()) {
-                    $username = $this->getService(UserManager::class)->getLoggedUser()['name'];
+                    $username = $this->getService(AuthController::class)->getLoggedUser()['name'];
                 } else {
                     $username = null;
                 }
             }
-            $currentUser = $this->getService(UserManager::class)->getLoggedUser();
+            $currentUser = $this->getService(AuthController::class)->getLoggedUser();
             if (!$this->wiki->UserIsAdmin() && $currentUser['name'] != $username) {
                 $apiResponse = new ApiResponse(
                     ['error' => 'Not authorized to access a triple of another user if not admin !'],
